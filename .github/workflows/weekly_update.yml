@@ -2,13 +2,9 @@ name: Weekly FPL Update
 
 on:
   schedule:
-    # Runs every Tuesday at 06:00 UTC - after Monday Night Football finishes
-    # and FPL has finalized the previous gameweek's points.
-    # Cron syntax: minute hour day month day-of-week
     - cron: "0 6 * * 2"
-  workflow_dispatch:  # lets you trigger it manually from the Actions tab too
+  workflow_dispatch:
 
-# Gives the workflow permission to push commits back to this repo
 permissions:
   contents: write
 
@@ -29,9 +25,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Force-refresh cached data
-        # build_training_data.py skips fetching if player_histories.json
-        # already exists - delete the cache every run so we always pull
-        # fresh data instead of silently reusing last week's.
         run: rm -f data/bootstrap.json data/fixtures.json data/player_histories.json
 
       - name: Run pipeline
