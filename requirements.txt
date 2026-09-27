@@ -1,0 +1,6 @@
+requests
+pandas
+scikit-learn
+joblib
+pulp<4.0.0
+streamlit

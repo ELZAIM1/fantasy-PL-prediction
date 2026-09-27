@@ -1,0 +1,23 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Raw cached API responses - these are large and get refreshed by the
+# GitHub Actions workflow anyway, no need to version them heavily.
+# (Keep this commented out if you WANT them tracked so the Action's
+# force-refresh step has something to diff against on the first run.)
+# data/player_histories.json
+data
+
